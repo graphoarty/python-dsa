@@ -44,7 +44,7 @@ def FibonacciSearch(arr, x):
 
             m = m - 1
             offset = i
- 
+
         # if the value you are searching for is less than the 
         # current arr[i], then it clearly means that you need to 
         # shift your focus to the elements that are before arr[i]
