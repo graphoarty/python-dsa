@@ -1,5 +1,4 @@
-# SORTING AN ARRAY TO THE ASCENDING ORDER
-
+import random
 
 def InsertionSort(array):
 
@@ -45,20 +44,15 @@ def Merge(aArr, bArr):
 
 def TimSort():
 
-    # run insertion sort on the RUNs
     for x in range(0, len(arr), RUN):
         arr[x : x + RUN] = InsertionSort(arr[x : x + RUN])
-
-    # merge the runs (RUN => RUN * 2)
     RUNinc = RUN
     while RUNinc < len(arr):
-
         for x in range(0, len(arr), 2 * RUNinc):
             arr[x : x + 2 * RUNinc] = Merge(arr[x : x + RUNinc], arr[x + RUNinc: x + 2 * RUNinc])
-
         RUNinc = RUNinc * 2
 
-import random
+
 arr = []
 RUN = 32
 for x in range(0, 50):
