@@ -11,20 +11,35 @@ def RecalibrateInc(inc):
 
     # I don't know what to write as a comment here
     return 1 if inc < 1 else int(inc)
- 
+
+# The algorithmic function (A decendent of the BubbleSort)
 def CombSort(array):
  
+    # The inc starts from the highest value
     inc = len(array)
+
+    # This boolean tracks whether a swap occured in the current iteration
     swap = True
  
+    # if inc is 1 and no swaps are happening, the array has been sorted
+    # if either of them are true, trudge forward because work needs to be done
     while not inc == 1 or swap == True:
- 
+
+        # Get a new value for the inc
         inc = RecalibrateInc(inc)
+
+        # Set swap to False
         swap = False
  
-        for i in range(0, len(array) - inc):
+        # Do the bubb.. bubb.. CombSort
+        # len(array) - inc because len(array) - inc + 1 has no elements
+        for i in range(0, len(array) - inc): 
+
             if array[i] > array[i + inc]:
+            
+                # swap the array elements
                 array[i], array[i + inc] = array[i + inc], array[i]
+            
                 swap = True
  
 # The array on which you will operate
