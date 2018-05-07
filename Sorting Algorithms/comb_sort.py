@@ -32,7 +32,7 @@ def CombSort(array):
         swap = False
  
         # Do the bubb.. bubb.. CombSort
-        # len(array) - inc because len(array) - inc + 1 has no elements
+        # len(array) - inc because len(array) - inc + inc onwards, no elements exist
         for i in range(0, len(array) - inc): 
 
             if array[i] > array[i + inc]:
