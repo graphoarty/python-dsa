@@ -1,3 +1,5 @@
+# [0, 1, 1, 2, 3, 5, 8, 13...]
+
 # return the fibonacci number at the index of n
 def FibonacciGenerator(n):
     if n < 1:
@@ -14,9 +16,12 @@ def FibonacciSearch(arr, x):
 
     # find the smallest Fibonacci number greater than or equal
     # to the length of arr
-    m = 0
+    m = 0 
     while FibonacciGenerator(m) < len(arr): # 
         m = m + 1 
+
+    # [10, 22, 30, 44, 56, 58, 60, 70, 100, 110, 130] 
+    # m = 7
 
     # m now contains the index of the the smallest Fibonacci
     # number greater than or equal to the length of the array
@@ -27,41 +32,30 @@ def FibonacciSearch(arr, x):
     # start that has been eliminated
     offset = -1
 
+    # [10, 22, 30, 44, 56, 58, 60, 70, 100, 110, 130] 
+    # m = 7
+    # offset = -1
+
     # make sure you fibonacci index is valid
     while (FibonacciGenerator(m) > 1):
 
-        # 1. you are generating a number greater the length
-        # of the array the first time you run it
-        # 2. you're adding it with the offset
-        # 3. you're comparing it with the length of the array
-        # 4. after running for the first time, you will always
-        # get returned the first parameter of min()
         i = min( offset + FibonacciGenerator(m - 2) , len(arr) - 1)
 
-        # if the value you are searching for is greater than the
-        # current arr[i], then it clearly means that you need to
-        # shift your focus to the elements that are beyond arr[i]
-        # move the three fibonacci variables one fibonacci down.
-        # Reset offset to index. Together these indicate elimination
-        # of approximately front one-third of the remaining array.
+        # [10, 22, 30, 44, 56, 58, 60, 70, 100, 110, 130] 
+        # m = 3
+        # offset = 5
+        # i = 6
+        # x = 60
+
         if (x > arr[i]):
 
             m = m - 1
             offset = i
 
-        # if the value you are searching for is less than the
-        # current arr[i], then it clearly means that you need to
-        # shift your focus to the elements that are before arr[i]
-        # move the three fibonacci variables two fibonacci down,
-        # indicating elimination of approximately rear two-third
-        # of the remaining array
         elif (x < arr[i]):
 
             m = m - 2
 
-        # naturally if both the values are the same, then you
-        # have reached your answer and you can then return the
-        # the index of the array
         else:
 
             return i
@@ -75,6 +69,6 @@ def FibonacciSearch(arr, x):
 
 
 # the search array
-arr = [10, 22, 30, 44, 56, 58, 60, 70, 100, 110, 130] # 13
-x = 44
+arr = [10, 22, 30, 44, 56, 58, 60, 70, 100, 110, 130] 
+x = 60
 print(FibonacciSearch(arr, x))
