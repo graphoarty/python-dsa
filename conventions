@@ -1,0 +1,168 @@
+------ Python ------
+
+    Naming Conventions
+
+        Methods:
+
+            Methods will be named with a camel case but with the first letter always in capital. It is always a good practice to club similar functions together and place them one after the other. For example,
+
+            def ProcessArgument(argument):
+                return processedArgument
+
+        Variables:
+
+            These will also be named with a camel case, but for variables, you will always be starting them with small letter. For example,
+
+            isArgumentProcessed = False
+
+        Classes:
+
+            Same as methods.
+
+    DJANGO SPECIFIC
+
+        Model Classes:
+
+            Classes:
+
+                Names of the classes in the models are essentially the names of Tables. Tables should always start off with a capital letter followed by camel casing.  
+
+            Methods:
+
+                Methods in this case will be inside the Class, hence you will follow the same conventions as of the Vanilla Python.
+
+            Variables:
+
+                Variables in this case are the actual elements which are 
+
+    Indentation
+
+        Tabs, always use tabs. Don't use spaces. Spaces are horrible.
+
+    Layout
+
+    Exception Handling / Logging
+
+        Use the format:
+
+            variable = None
+            try:
+                one_line_execution
+            except:
+                pass or return with error
+
+    Commenting
+
+        Use # to comment above the line mentioned.
+        
+        Write the comment in all small letters to maintain consistency.
+
+        Label sections of functions, while making sure they are similar.
+
+---------------
+
+Javascript
+
+    Naming Conventions
+
+            Methods:
+
+                Methods will be named with a camel case but with the first letter always in capital. It is always a good practice to club similar functions together and place them one after the other. For example,
+
+                function ProcessArgument(argument):
+                    return processedArgument
+
+            Variables:
+
+                These will also be named with a camel case, but for variables, you will always be starting them with small letter. Always use 'var' to initialize a new Variable. For example,
+
+                var isArgumentProcessed = False
+
+            Classes:
+
+                Same as methods.
+
+        DJANGO SPECIFIC
+
+            Model Classes:
+
+                Classes:
+
+                    Names of the classes in the models are essentially the names of Tables. Tables should always start off with a capital letter followed by camel casing.  
+
+                Methods:
+
+                    Methods in this case will be inside the Class, hence you will follow the same conventions as of the Vanilla Python.
+
+                Variables:
+
+                    Variables in this case are the actual elements which are 
+
+    Indentation
+
+        Tabs, always use tabs. Don't use spaces. Spaces are horrible.
+
+    Layout
+
+    Exception Handling / Logging
+
+        Use the format:
+
+            variable = None
+            try:
+                one_line_execution
+            except:
+                pass or return with error
+
+    Commenting
+
+        Use # to comment above the line mentioned.
+        
+        Write the comment in all small letters to maintain consistency.
+
+        Label sections of functions, while making sure they are similar.
+
+JSON
+
+
+
+HTML
+
+
+
+CSS
+
+
+C#
+
+
+
+Naming Conventions
+
+How will you name your methods, variables, classes and interfaces? Which notation will you be using?
+Also something else included in our standards was a split off standards for SQL, so we had similar names for tables, procedures, columns, id fields, triggers, etc.
+
+Indentation
+
+What will you be using for indentation? A single tab? 3 spaces?
+
+Layout
+
+Will braces be kept on the same line as the opening method line? (generally java) or on the next line or a line of its own? (generally C#)
+
+Exception Handling / Logging
+
+What are your standards for exception handling & logging, is it all home grown or are you using a third party tool? How should it be used?
+
+Commenting
+
+We have standards to dictate grammatical correctness, and that comments begin on the line before, or after, not on the same line, this increases readability. Will comments have to be indented to the same depth as the code? Will you accept those comment borders used around larger texts?
+How about the \\\ on Methods for descriptions? Are these to be used? When?
+
+Exposure
+
+Should all of your methods and fields be implementing the lowest level of access possible?
+Also an important thing to note. A good standards document can go a long way in helping review code, does it meet these minimum standards?
+I've barely scratched the surface of what can go into one of these documents, but K.I.S.S.
+Don't make it long, and boring, and impossible to get through, or those standards just wont be followed, keep it simple.
+
