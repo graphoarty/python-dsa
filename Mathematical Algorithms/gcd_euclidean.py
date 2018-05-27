@@ -74,13 +74,26 @@ def EuclideanGCD(a, b):
         '''
         return EuclideanGCD(a % b, b)
     
-    '''
-    {
-        If the second number is bigger or equal to the first, this is what gets called.
-    }
-    '''
-    return EuclideanGCD(b % a, a)
+    else:
+
+        '''
+        {
+            If the second number is bigger or equal to the first, this is what gets called.
+        }
+        '''
+        return EuclideanGCD(b % a, a)
 
 
 # Example Function Call
 print(EuclideanGCD(49, 21))
+
+
+# 49 , 21 => GCD is 7
+# 28 , 21 => GCD is 7
+# 7 , 21 => GCD is 7
+# 7 , 14 => GCD is 7
+# 7 , 7 => GCD is 7
+
+
+
+
