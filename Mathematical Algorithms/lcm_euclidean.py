@@ -113,11 +113,10 @@ def LeastCommonMultiple(a, b):
 
 print(LeastCommonMultiple(4, 7))
 
-
 # 4, 2
 
 # Table of 4: 4, 8, 12, 16, 20, 24, 28, 32, …
-# Table of 2: 2, 4, 6, 8, 10, …
+# Table of 2: 2, 4, 6, 8, 10, … 
 
 # LCM(4, 2) = | 4 * 2 | / GCD(4 , 2) = | 8 | / 2 = | 4 | = 4
 
