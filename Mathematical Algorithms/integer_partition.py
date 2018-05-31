@@ -1,6 +1,6 @@
 '''
 {
-    
+ 
     According to Number Theory and Combinatorics, a partition of a positive integer is a way of writing the number as a sum of multiple positive integers. For example, if we take a positive integer number like 4. We can express 4 as 
     
     4 (we count the value of the integer itself also as a seperate combination)
@@ -11,7 +11,7 @@
     
     Hence, the number of integer partitions for 4 are 5.
 
-    If you observe, 2 + 1 + 1 can also be represented as 1 + 1 + 2, 1 + 2 + 1. But in this algorithm we will not consider the order in which  the numbers occur but the values of the numbers themselves. So basically, order is not important.
+    If you observe, 2 + 1 + 1 can also be represented as 1 + 1 + 2, 1 + 2 + 1. But in this algorithm we will not consider the order in which the numbers occur but the values of the numbers themselves. So basically, order is not important.
 
     Another way of thinking about this is that we will consider combinations and not permutations.
 
@@ -30,7 +30,7 @@
     4   [ 0, 0, 0, 0, 0, 0 ]
     5   [ 0, 0, 0, 0, 0, 0 ]
 
-    In this matrix, the horizontal or Y indexes denote the sum the we have to create and the vertical indexes or X denote the summands which help us generate the sum (if you don't know what a summand is... summands are the actual numbers that you add to get the sum. For example, if you add 1 + 3 = 4. 1 and 3 are the summands and 4 is the sum). So basically, we are going to use the vertical summands to generate the horizontal sums. The algorithm that we use here is based on Dymanic Programming. The paradigm by which Dynamic Programming operates is by breaking the bigger problem into smaller problems and then storing the results obtained. The results can then be fetched to later help solve the bigger problem. That is exactly what we are gonna do in this case.
+    In this matrix, the horizontal or Y indexes denote the sum that we have to create and the vertical indexes or X denote the summands which help us generate the sum (if you don't know what a summand is... summands are the actual numbers that you add to get the sum. For example, if you add 1 + 3 = 4. 1 and 3 are the summands and 4 is the sum). So basically, we are going to use the vertical summands to generate the horizontal sums. The algorithm that we use here is based on Dymanic Programming. The paradigm by which Dynamic Programming operates is by breaking the bigger problem into smaller problems, then solving those problems and then storing the results obtained. The results can then be fetched to later help solve the bigger problem. That is exactly what we are gonna do in this case.
 
     Now, as the first index of Y is 0, so we need to create a sum of 0 from the first summand in X which is also 0. The number of combinations in which we can achieve 0 from 0 is 1 because 0 has no value and cannot be broken down any futher.
     
@@ -62,9 +62,9 @@
     4   [ 0, 0, 0, 0, 0, 0 ]
     5   [ 0, 0, 0, 0, 0, 0 ]
 
-    In the next row, we have access to the summands {0, 1, 2}. So, to create the first number we will need to generate 0 from {0, 1, 2}. Now, we know for a fact that we will not be able to use 2 or 1 in this case to create the sum. This is simply because 2 and 1 are bigger than 0. So, there is only 1 combination as seen previously. But, we can actually use a shortcut in this case and not have to logically assess this every single time as we have the answers to the pervious test cases stored in the partition matrix. So, shortcut basically is, 
+    In the next row, we have access to the summands {0, 1, 2}. So, to create the first number we will need to generate 0 from {0, 1, 2}. Now, we know for a fact that we will not be able to use 2 or 1 in this case to create the sum. This is simply because 2 and 1 are bigger than 0. So, there is only 1 combination as seen previously. But, we can actually use a shortcut in this case and not have to logically assess this every single time as we have the answers to the pervious test cases stored in the partition matrix. So, the shortcut basically is, 
 
-    SC1: If the sum is less than the summand considered, just fill the value of the empty field considered by the value directly above it.
+    SC1: If the sum is less than the summand considered, just fill the empty field considered by the value directly above it.
 
     Hence we fill, [2, 0] with 1 and we fill [2, 1] with 1 considering the fact that the summands are greater than the sum.
 
@@ -77,7 +77,7 @@
     4   [ 0, 0, 0, 0, 0, 0 ]
     5   [ 0, 0, 0, 0, 0, 0 ]
 
-    So, now we are at a point where we need to create 2 from {0, 1, 2}. So, the algorithm states at this point that we need to 
+    So, now we are at a point where we need to create 2 from {0, 1, 2}. So, the algorithm states, to tackle this sort of a field.
 
     1. Find the combinations excluding the current summand.
     2. Find the combinations including the current summand.
@@ -217,8 +217,7 @@ def integerPartition(number):
     '''
     return partitionMatrix[number][number]
 
-partitionMatrix = integerPartition(5)
 
-for x in range(0, len(partitionMatrix)):
-    print(partitionMatrix[x])
+print(integerPartition(5))
+
 
