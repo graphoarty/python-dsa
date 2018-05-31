@@ -95,51 +95,67 @@
 
     So, in this field that we are currently considering, the excluded combinations are 1. 
 
-    For the included combinations, we need to create 3 from {0, 1, 2}. One of the ways in which we can do this is 2 + 1 = 3. So, the number of combinations become generating 1 from {0, 1, 2}. Remember that we have an unlimited supply of summands always. 
+    For the included combinations, we need to create 3 from {0, 1, 2}. One of the ways in which we can do this is 2 + 1 = 3. Remember that we have an unlimited supply of summands always. So, the number of combinations needed are generating 1 from {0, 1, 2}. So, the number of combinations for that is already calculated at the field [2, 1] which is 1. 
+
+    So, the total combinations become 1 + 1 which is 2. Hence, the field [2, 3]in the partition matrix is filled with 2. 
 
       Y   0  1  2  3  4  5
     X       
     0   [ 1, 0, 0, 0, 0, 0 ]
     1   [ 1, 1, 1, 1, 1, 1 ]
-    2   [ 1, 1, 2, 0, 0, 0 ]
+    2   [ 1, 1, 2, 2, 3, 0 ]
     3   [ 0, 0, 0, 0, 0, 0 ]
     4   [ 0, 0, 0, 0, 0, 0 ]
     5   [ 0, 0, 0, 0, 0, 0 ]
 
+    The next field [2, 4] need to be filled with the combinations of generating 4 from {0, 1, 2}. Using the excluding shortcut, we know the first addition value is 1. In order to generete the including addition value, we can, as usual take 2 + 2 = 4 and try to find the combinations for generating 2 from {0, 1, 2} or we can use another shortcut. This shortcut generates the second addition value. 
+    
+    SC3: The combinations of including the current summand can be calculated by subtracting the current sum from the current summand, which would give you an integer which we will denote by x. The number of combinations is the value at the field [current summand, x] of the partition matrix.
+
+    In this case, the x value will be 4 - 2 which is 2. So, the field [2, 2] is 2. Hence, we get the values 1 + 2 which is 3. So the field [2, 4] is populated by 3. 
+
+    The reason we use these 3 shortcuts is to enable to write the code for generating the partition matrix for this algorithm. Similarly, we can compute all of the other fields by using these shortcuts. Let's take a look at the code. 
+
 }
 '''
 
+'''
+{
+    The function integerPartition takes a number and returns the total number if integer partition combinations generated for that number.
+}
+'''
 def integerPartition(number):
 
     '''
     {
-        Increment number by one so as to be able to use the original number as an index
-        in the matrix. For example, if the original value of the number passed was 4. 
-        We would only consider 0, 1, 2, 3 in the range function. So, instead of 
-        adding + 1 to every range function, we can just add + 1 here and decrement later. 
+        Increment number by one so as to be able to use the original number as an index in the matrix. For example, if the original value of the number passed was 4. We would only consider 0, 1, 2, 3 in the range function. So, instead of adding + 1 to every range function, we can just add + 1 here and decrement later. 
     }
     '''
     number = number + 1
 
     '''
     {
-        Create a partition matrix for solving this task using Dynamic Programming.
-        The line mentioned below creates a partition matrix that is number by number in
-        width and height. For example, if the value of number is 5 after incrementing, you
-        will create a matrix of width x height of 5 x 5. So, this line is basically a short-cut
+        Create a partition matrix for solving this task using Dynamic Programming. The line mentioned below creates a partition matrix that is number by number in width and height. For example, if the value of number is 5 after incrementing, you will create a matrix of width by height of 5 by 5. So, this line is basically a short-cut
         for creating a 2D or bi-dimensional Array.
 
-        Once more thing to realize is that, we have initialized all of the fields in the
-        partitionMatrix to zero.
+        Once more thing to realize is that, we have initialized all of the fields in the partitionMatrix to zero.
+
+          Y   0  1  2  3  4  5
+        X       
+        0   [ 0, 0, 0, 0, 0, 0 ]
+        1   [ 0, 0, 0, 0, 0, 0 ]
+        2   [ 0, 0, 0, 0, 0, 0 ]
+        3   [ 0, 0, 0, 0, 0, 0 ]
+        4   [ 0, 0, 0, 0, 0, 0 ]
+        5   [ 0, 0, 0, 0, 0, 0 ]...
+        
     }
     '''
     partitionMatrix = [ [0] * number for x in xrange(number) ]
 
     '''
     {
-        After creating the partition matrix a few times, you realize that the first column
-        of the partitionMatrix always consists of 1s. Hence, we are the setting all the fields
-        in the first column to be ones.
+        Now the we have solved an example, you would have realized that the first column of the partition matrix is always 1. Hence, this is what we are setting up here. The summandIndex is the value in the forloop which goes from the range 0 to number (excluding the number ofcourse). The first index is always row selection and second value is column selection in a 2D Array. 
     }
     '''
     for summandIndex in range(0, number):
@@ -147,21 +163,44 @@ def integerPartition(number):
 
     '''
     {
-
+        In these nested forloops we will apply the algorithms that we discussed in the examples. The summandIndex indicates the vertical index of the partition matrix and the numberIndex indicates the horizontal index of the partition matrix. We start the loop from 1, simply because we have already set the values for the first row and the first column in the previous steps.
     }
     '''
     for summandIndex in range(1, number):
         for numberIndex in range(1, number):
             
             if summandIndex > numberIndex:
-                
+
+                '''
+                {
+                    If the summand is greater than the sum, we just copy the value in the field above. The co-ordinates for the values in the field above are [summandIndex - 1][numberIndex]
+                }
+                '''
                 partitionMatrix[summandIndex][numberIndex] = partitionMatrix[summandIndex - 1][numberIndex]
 
             else:
-                
+
+                '''
+                {
+                    If the summand is not greater than the sum, we find the combinations that include the current summand and exclude the current summand. We have the shortcuts available for finding them with the algorithms. 
+
+                    For excluding the current summand, we just copy the value above it as usual.
+                }
+                '''
                 combosWithoutSummand = partitionMatrix[summandIndex - 1][numberIndex]
+
+                '''
+                {
+                    And for including the summand, we subtract the current sum which in this case is the number index from the summandIndex and that becomes our column indicator. Using the summandIndex as our row indicator we get our field value as [summandIndex][numberIndex - summandIndex]
+                }
+                '''
                 combosWithSummand = partitionMatrix[summandIndex][numberIndex - summandIndex]
 
+                '''
+                {
+                    Hence, we fill the value at partitionMatrix[summandIndex][numberIndex] by adding the combosWithoutSummand and combosWithSummand to get our answer.
+                }
+                '''
                 partitionMatrix[summandIndex][numberIndex] = combosWithoutSummand + combosWithSummand
 
     '''
@@ -171,6 +210,11 @@ def integerPartition(number):
     '''
     number = number - 1
 
+    '''
+    {
+        Return the total number of combinations of integer partitions.
+    }
+    '''
     return partitionMatrix[number][number]
 
 partitionMatrix = integerPartition(5)
