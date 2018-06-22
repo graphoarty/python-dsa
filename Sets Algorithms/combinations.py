@@ -38,5 +38,4 @@ arr = ['a', 'b', 'c']
 CombinationsWithoutRepitition(arr, [], 3, 0)
 
 print(combinations)
-print(len(combinations))
-print(set([1, 2, 4]) == set([4, 2, 1]))
+print("Count: " + str(len(combinations)))
