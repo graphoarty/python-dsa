@@ -1,6 +1,6 @@
 combinations = []
 
-def CombinationsWithRepitition(array, tempArray, r, i):
+def CombinationsWithRepitition(array, tempArray, r):
 
     if len(tempArray) == r:
         
@@ -10,10 +10,10 @@ def CombinationsWithRepitition(array, tempArray, r, i):
 
         for x in range(0, len(array)):
             tempArray.append(array[x])
-            CombinationsWithRepitition(array, tempArray, r, i + 1)
+            CombinationsWithRepitition(array, tempArray, r)
             tempArray.pop(len(tempArray) - 1)
 
-def CombinationsWithoutRepitition(array, tempArray, r, i):
+def CombinationsWithoutRepitition(array, tempArray, r):
 
     if len(tempArray) == r:
         
@@ -30,12 +30,18 @@ def CombinationsWithoutRepitition(array, tempArray, r, i):
         for x in range(0, len(array)):
             if not array[x] in tempArray:
                 tempArray.append(array[x])
-                CombinationsWithoutRepitition(array, tempArray, r, i + 1)
+                CombinationsWithoutRepitition(array, tempArray, r)
                 tempArray.pop(len(tempArray) - 1)
 
-arr = ['a', 'b', 'c']
+arr = ['a', 'b', 'c', 'd']
 
-CombinationsWithoutRepitition(arr, [], 3, 0)
-
+CombinationsWithRepitition(arr, [], 3)
 print(combinations)
 print("Count: " + str(len(combinations)))
+
+combinations = []
+
+CombinationsWithoutRepitition(arr, [], 3)
+print(combinations)
+print("Count: " + str(len(combinations)))
+
