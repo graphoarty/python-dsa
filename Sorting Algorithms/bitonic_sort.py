@@ -1,39 +1,30 @@
-ASCENDING = 1
-DECENDING = 0
+def BitonicSort(direction, arr):
 
-def CompareAndSwap(array, i, j, direction):
+    if len(arr) <= 1:
+        return arr
+    else: 
+        first = BitonicSort(True, arr[:len(arr) // 2])
+        second = BitonicSort(False, arr[len(arr) // 2:])
+        return BitonicMerge(direction, first + second)
 
-    if direction == ASCENDING:
+def BitonicMerge(direction, arr): 
 
-        if array[i] > array[j]:
+    if len(arr) == 1:
+        return arr
+    else:
+        BitonicCompare(direction, arr)
+        first = BitonicMerge(direction, arr[:len(arr) // 2])
+        second = BitonicMerge(direction, arr[len(arr) // 2:])
+        return first + second
 
-           array[i], array[j] = array[j], array[i] 
+def BitonicCompare(direction, arr):
 
-    elif direction == DECENDING:
+    dist = len(arr) // 2
+    
+    for i in range(dist):  
+        if (arr[i] > arr[i + dist]) == direction:
+            arr[i], arr[i + dist] = arr[i + dist], arr[i]
 
-        if array[i] < array[j]:
-
-            array[i], array[j] = array[j], array[i]
-
-def BitonicMerge(array, low, high, direction):
-
-    if high > 1:
-
-        split = high / 2
-        for x in range(low, low + split):
-            CompareAndSwap(array, x, split + x, direction)
-        BitonicMerge(array, low, split, direction)
-        BitonicMerge(array, low + split, split, direction)
-
-def BitonicSort(array, low, high, direction):
-
-    if high > 1:
-
-        split = high / 2
-        BitonicSort(array, low, split, ASCENDING)
-        BitonicSort(array, low + split, split, DECENDING)
-        BitonicMerge(array, low, high, direction)
-
-array = [3, 7, 4, 8, 6, 2, 1, 5]
-BitonicSort(array, 0, len(array), ASCENDING)
+array = [ 3, 7, 4, 8, 6, 2, 1, 5 ]
+array = BitonicSort(True, array)
 print(array)
