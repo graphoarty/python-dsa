@@ -45,6 +45,6 @@ for x in range(0, 5):
 
     while pred[v] != None:
         v = pred[v]
-        path += str(v) + ' '
+        path += ' >- ' + str(v)
         
-    print(path[::-1] + ' ' + str(x))
+    print(path[::-1] + '' + str(x))
