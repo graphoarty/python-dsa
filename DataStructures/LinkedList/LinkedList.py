@@ -20,7 +20,7 @@ class LinkedList:
         
         newNode = LinkedListNode(value)
 
-        if not self.head == None:
+        if self.head == None:
             self.head = newNode
             self.tail = newNode
 
@@ -44,5 +44,3 @@ class LinkedList:
             currentNode = currentNode.next
 
         return None
-
-    

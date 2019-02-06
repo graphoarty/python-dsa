@@ -1,4 +1,5 @@
 from hashlib import md5
+from DataStructures.LinkedList.LinkedList import *
 
 defaultHashTableSize = 32
 
@@ -6,7 +7,7 @@ class HashTable:
 
     def __init__(self, hashTableSize = defaultHashTableSize):
         self.value = None
-        self.buckets = [{} for x in range(0, hashTableSize)]
+        self.buckets = [LinkedList() for x in range(0, hashTableSize)]
         self.keys = {}
 
     def set(self, key, value):
@@ -15,15 +16,28 @@ class HashTable:
         self.keys[key] = keyHash
         bucketLinkedList = self.buckets[keyHash]  
 
+        node = bucketLinkedList.find({key: value})
         # implement linked list here
-        bucketLinkedList[key] = value
+        if node == None:
+            bucketLinkedList.append({key: value})
+        else:
+            node.value.value = value
 
     def get(self, key):
 
         bucketLinkedList = self.buckets[self.hash(key)]
-        return bucketLinkedList[key]
 
-    # hash to return a number
+        # custom linkedlist find
+        currentNode = bucketLinkedList.head
+        while not currentNode == None:
+            for k in currentNode.value:
+                if k == key:
+                    return currentNode.value[k]
+            currentNode = currentNode.next
+
+        return None
+
+    # return a number
     def hash(self, key):
         k = 0
         for s in list(md5(str(key).encode('utf-8')).hexdigest()):
