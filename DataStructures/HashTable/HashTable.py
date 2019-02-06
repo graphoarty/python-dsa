@@ -37,6 +37,28 @@ class HashTable:
 
         return None
 
+    def delete(self, key):
+
+        keyHash = self.hash(key);
+        del self.keys[key];
+        bucketLinkedList = self.buckets[keyHash];
+
+        # custom linkedlist find
+        node = None
+        currentNode = bucketLinkedList.head
+        while not currentNode == None and node == None:
+            for k in currentNode.value:
+                if k == key:
+                    node = currentNode
+                    break
+            currentNode = currentNode.next
+
+        if not node == None:
+            return bucketLinkedList.delete(node.value)
+
+        return None;
+    
+
     # return a number
     def hash(self, key):
         k = 0
