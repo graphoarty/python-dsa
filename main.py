@@ -1,9 +1,8 @@
 from DataStructures.HashTable.HashTable import *
 
 hashTable = HashTable()
-hashTable.set(1, 10)
-hashTable.set(2, 11)
-hashTable.set(3, 13)
+hashTable.set('Quinston', 10)
+hashTable.set('Jonny', 11)
+hashTable.set('Jason', 'New Robin')
 
-print(hashTable.delete(2).value)
-print(hashTable.get(2))
+print(hashTable.get('Jason'))
