@@ -2,6 +2,8 @@ permutations = []
 
 def GeneratePermutations(array, start, end):
 
+    global permutations
+
     current = 0
 
     if start >= end:
@@ -20,4 +22,7 @@ def GeneratePermutations(array, start, end):
 
 def Permutations(array):
 
+    global permutations
+
+    permutations = []
     return GeneratePermutations(array, 0, len(array))
