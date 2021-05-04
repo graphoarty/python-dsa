@@ -2,8 +2,6 @@
 # PString = 'ababd'
 
 def KnuthMorrisPrattSearch(PString, T):
-
-    P = []
     
     # Create Map
     PMap = []
@@ -15,6 +13,7 @@ def KnuthMorrisPrattSearch(PString, T):
     PMap.append(0)
 
     # Create List P (PString mirror) with Empty 0th Element
+    P = []
     P.append(0)
     P.append(PString[0])
 
