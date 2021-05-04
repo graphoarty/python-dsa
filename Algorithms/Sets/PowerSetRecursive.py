@@ -6,7 +6,7 @@ def PowerSetRecursiveHelper(arr, p_arr, start, end):
 
     if start >= end:
 
-        subsets.append("".join(p_arr))
+        subsets.append(list("".join(p_arr)))
 
         if len(subsets) == 2 ** len(arr):
             return subsets
@@ -19,12 +19,12 @@ def PowerSetRecursiveHelper(arr, p_arr, start, end):
         return PowerSetRecursiveHelper(arr, p_arr, start + 1, end)
 
 
-def PowerSetRecursive(s):
+def PowerSetRecursive(arr):
 
     global subsets
 
     subsets = []
-    return(PowerSetRecursiveHelper(list(s), [], 0, len(s)))
+    return(PowerSetRecursiveHelper(arr, [], 0, len(arr)))
 
 
-# print(PowerSetRecursive('abcd'))
+# print(PowerSetRecursive(['a', 'b', 'c']))

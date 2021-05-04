@@ -17,4 +17,4 @@ def PowerSet(originalSet):
 
     return subSets
 
-print(PowerSet(['1', '2', '3']))
+# print(PowerSet(['1', '2', '3']))
