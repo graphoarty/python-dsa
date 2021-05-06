@@ -1,16 +1,9 @@
-
-def RecursiveSearch( searchArray, index, valueOfNumberToFind):
+def LinearSearchRecursive(arr, key, index = 0):
     
-    if index >= len(searchArray):
+    if index >= len(arr):
         return -1
     
-    if searchArray[index] == valueOfNumberToFind:
-        return index + 1
+    if arr[index] == key:
+        return index
 
-    return RecursiveSearch(searchArray, index + 1, valueOfNumberToFind)
- 
-
-searchArray = [12, 34, 54, 2, 3]
-valueOfNumberToFind = 3
-
-print(RecursiveSearch(searchArray, 0, valueOfNumberToFind))
+    return LinearSearchRecursive(arr, key, index + 1)
