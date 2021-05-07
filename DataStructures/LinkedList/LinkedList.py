@@ -62,12 +62,12 @@ class LinkedList:
         if not currentNode == None:
             while not currentNode.next == None:
                 if currentNode.next.value == value:
-                    deletedNode = currentNode.next;
-                    currentNode.next = currentNode.next.next;
+                    deletedNode = currentNode.next
+                    currentNode.next = currentNode.next.next
                 else:
-                    currentNode = currentNode.next;
+                    currentNode = currentNode.next
             
         if self.tail.value == value:
-            self.tail = currentNode;
+            self.tail = currentNode
 
-        return deletedNode;
+        return deletedNode
