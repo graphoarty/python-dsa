@@ -1,8 +1,3 @@
-from DataStructures.HashTable.HashTable import *
+from Algorithms.Sorting.MergeSort import *
 
-hashTable = HashTable()
-hashTable.set('Quinston', 10)
-hashTable.set('Jonny', 11)
-hashTable.set('Jason', 'New Robin')
-
-print(hashTable.get('Jason'))
+print(MergeSort([8,2,9,1,0,6,3,5]))
