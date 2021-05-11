@@ -1,55 +1,56 @@
 # Python Data Structures and Algorithms
 
-DataStructures
-    LinkedList
-        LinkedList.py
-        LinkedListNode.py
-    HashTable
-        HashTable.py
+DataStructures<br />
+    LinkedList<br />
+        LinkedList.py<br />
+        LinkedListNode.py<br />
+    HashTable<br />
+        HashTable.md<br />
+        HashTable.py<br />
 
-Algorithms
-    Strings
-        KnuthMorrisPratt.py
-        RabinKarp.py
-    Array
-        Merge.py
-        Reverse.py
-        Shift.py
-        Rotate.py
-    Graph
-        BellmanFord.py
-    Math
-        GCDEuclidean.py
-        IntegerPartition.py
-        LCMEuclidean.py
-        PowerOfBase.py
-        Factorial.py
-    Search
-        LinearSearch.py
-        FibonacciSearch.py
-        LinearSearchRecursive.py
-        BinarySearchRecursive.py
-        BinarySearch.py
-    Sets
-        Difference.py
-        CartesianProduct.py
-        PowerSetRecursive.py
-        PowerSetBitwise.py
-        Permutations.py
-        Intersection.py
-        Combinations.py
-        Union.py
-    Sorting
-        StrandSort.py
-        CombSort.py
-        InsertionSort.py
-        SelectionSort.py
-        CycleSort.py
-        PigeonHoleSort.py
-        QuickSort.py
-        BitonicSort.py
-        CocktailSort.py
-        TimSort.py
-        BubbleSort.py
+Algorithms<br />
+    Strings<br />
+        KnuthMorrisPratt.py<br />
+        RabinKarp.py<br />
+    Array<br />
+        Merge.py<br />
+        Reverse.py<br />
+        Shift.py<br />
+        Rotate.py<br />
+    Graph<br />
+        BellmanFord.py<br />
+    Math<br />
+        GCDEuclidean.py<br />
+        IntegerPartition.py<br />
+        LCMEuclidean.py<br />
+        PowerOfBase.py<br />
+        Factorial.py<br />
+    Search<br />
+        LinearSearch.py<br />
+        FibonacciSearch.py<br />
+        LinearSearchRecursive.py<br />
+        BinarySearchRecursive.py<br />
+        BinarySearch.py<br />
+    Sets<br />
+        Difference.py<br />
+        CartesianProduct.py<br />
+        PowerSetRecursive.py<br />
+        PowerSetBitwise.py<br />
+        Permutations.py<br />
+        Intersection.py<br />
+        Combinations.py<br />
+        Union.py<br />
+    Sorting<br />
+        StrandSort.py<br />
+        CombSort.py<br />
+        InsertionSort.py<br />
+        SelectionSort.py<br />
+        CycleSort.py<br />
+        PigeonHoleSort.py<br />
+        QuickSort.py<br />
+        BitonicSort.py<br />
+        CocktailSort.py<br />
+        TimSort.py<br />
+        BubbleSort.py<br />
 
 [Inspiration](https://github.com/trekhleb/javascript-algorithms)
