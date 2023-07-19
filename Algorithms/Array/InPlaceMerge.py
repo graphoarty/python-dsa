@@ -1,6 +1,9 @@
-def InPlaceMerge(arr, l, r):
+def InPlaceMergeAscending(arr, l, r):
 
     m = int((l + r) / 2)
+
+    if m - 1 >= 0 and arr[m - 1] <= arr[m]:
+        return
 
     i = l
     j = m

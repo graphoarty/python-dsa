@@ -12,4 +12,4 @@ def InPlaceMergeSort(arr, l, r):
 
     InPlaceMergeSort(arr, l, m)
     InPlaceMergeSort(arr, m, r)
-    InPlaceMerge(arr, l, r)
+    InPlaceMergeAscending(arr, l, r)
