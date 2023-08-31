@@ -1,4 +1,4 @@
-# Python Data Structures and Algorithms
+# Python Data Structures and Algorithms For Everyone 
 
 ## DataStructures<br />
 ### LinkedList<br />
